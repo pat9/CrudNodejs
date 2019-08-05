@@ -27,6 +27,23 @@
                 <% for(var i = 0; i<personas.length; i++){ %>
                     <tr>
                         <td><%= personas[i].nombre %></td>
+                        <td><%= personas[i].edad %></td>
+                        <td><%= personas[i].telefono %></td>
+                        <td><%= personas[i].estadocivil %></td>
+                        <td>
+                            <% if( personas[i].hijos  == true){ %>
+                                Sí
+                            <%}else{%>
+                                No
+                            <%}%>
+                        </td>
+                      
+                        <td><% for(var j = 0; j<personas[i].intereses.length; j++){ %>
+                            <% if(personas[i].intereses[j].value == true){ %>
+                                <%= personas[i].intereses[j].key %>
+                            <%}%>
+                        <% } %></td>
+                        <td><a href="/editar/<%= personas[i]._id%>">Editar</a>&nbsp;&nbsp;<a href="/eliminar/<%= personas[i]._id%>">Eliminar</a></td>
                     </tr>        
                 <% } %>
             </tbody>
